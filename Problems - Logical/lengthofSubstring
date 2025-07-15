@@ -1,0 +1,19 @@
+def lengthOfLongestSubstring(s):
+    seen = set()        # Set to keep track of characters in current substring
+    start = 0           # Left edge of substring
+    max_length = 0      # Max length found so far
+
+    for end in range(len(s)):   # Move 'end' from 0 to end of string
+        while s[end] in seen:   # If duplicate found
+            seen.remove(s[start])  # Remove char at 'start' from set
+            start += 1             # Move start forward (shrink substring)
+        seen.add(s[end])           # Add current char to set
+        max_length = max(max_length, end - start + 1)  # Update max length
+
+    return max_length
+
+
+if __name__ == "__main__":
+    input_string = input("Enter the string to find length of longest substring: ")
+    result = lengthOfLongestSubstring(input_string)
+    print(f"The length of the longest substring without repeating characters is: {result}")
