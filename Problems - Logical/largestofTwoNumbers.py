@@ -20,5 +20,18 @@ def largestOfTwoNumbers():
         print("Please enter valid numbers.")
         return
     
-    if __name__ == "__main__":
-        largestOfTwoNumbers()
+    
+def largestUsingMax():
+    try:
+        num1 = float((input("Enter the first number:")))
+        num2 = float((input("Enter the second number:")))
+        largest = max(num1, num2)
+    except ValueError:
+        print("Please enter valid numbers.")
+        return
+    
+    print ("The largest number is: {largest}")
+    
+if __name__ == "__main__":
+    largestOfTwoNumbers()
+    largestUsingMax()
